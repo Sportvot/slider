@@ -1,7 +1,7 @@
 @prefixClass: rc-slider;
 
 @disabledColor: #ccc;
-@border-radius-base: 6px;
+@border-radius-base: 4px;
 @primary-color: #2db7f5;
 @tooltip-color: #fff;
 @tooltip-bg: tint(#666, 4%);
@@ -33,8 +33,8 @@
   &-rail {
     position: absolute;
     width: 100%;
-    height: 4px;
-    background-color: #e9e9e9;
+    height: 48px;
+    background-color: fade(@tooltip-color, 5%);
     border-radius: @border-radius-base;
   }
 
@@ -42,7 +42,7 @@
   &-tracks {
     position: absolute;
     height: 4px;
-    background-color: tint(@primary-color, 60%);
+    background-color: transparent;
     border-radius: @border-radius-base;
   }
 
@@ -58,12 +58,9 @@
   &-handle {
     position: absolute;
     z-index: 1;
-    width: 14px;
-    height: 14px;
-    margin-top: -5px;
+    width: 6px;
+    height: 48px;
     background-color: #fff;
-    border: solid 2px tint(@primary-color, 50%);
-    border-radius: 50%;
     cursor: pointer;
     cursor: -webkit-grab;
     cursor: grab;
@@ -71,13 +68,8 @@
     user-select: none;
     touch-action: pan-x;
 
-    &-dragging&-dragging&-dragging {
-      border-color: tint(@primary-color, 20%);
-      box-shadow: 0 0 0 5px tint(@primary-color, 50%);
-
-      &-delete {
-        opacity: 0;
-      }
+    &-dragging&-dragging&-dragging&-delete {
+      opacity: 0;
     }
 
     &:focus {
@@ -85,26 +77,24 @@
       box-shadow: none;
     }
 
-    &:focus-visible {
-      border-color: @primary-color;
-      box-shadow: 0 0 0 3px tint(@primary-color, 50%);
-    }
-
     &-click-focused:focus {
-      border-color: tint(@primary-color, 50%);
       box-shadow: unset;
     }
 
-    &:hover {
-      border-color: tint(@primary-color, 20%);
-    }
-
     &:active {
-      border-color: tint(@primary-color, 20%);
-      box-shadow: 0 0 5px tint(@primary-color, 20%);
       cursor: -webkit-grabbing;
       cursor: grabbing;
     }
+  }
+
+  &-handle-1 {
+    border-top-left-radius: @border-radius-base;
+    border-bottom-left-radius: @border-radius-base;
+  }
+
+  &-handle-2 {
+    border-top-right-radius: @border-radius-base;
+    border-bottom-right-radius: @border-radius-base;
   }
 
   &-mark {
