@@ -36,7 +36,7 @@ jobs:
           Configure Git for pushing commits
           # Embed the access token directly into the remote URL so that the gh-pages library can pick it up
         run: |
-          git config --global user.email "nirzon@sportvot.com
+          git config --global user.email "nirzon@sportvot.com"
           git config --global user.name "nirzon47"
           git remote set-url origin https://git:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
