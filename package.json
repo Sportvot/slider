@@ -1,5 +1,5 @@
 {
-  "name": "rc-slider",
+  "name": "@sportvot/rc-slider",
   "version": "11.1.10",
   "description": "Slider UI component for React",
   "keywords": [
