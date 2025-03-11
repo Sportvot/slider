@@ -32,13 +32,10 @@ jobs:
           registry-url: 'https://npm.pkg.github.com/'
           scope: '@sportvot'
 
-      - name:
-          Configure Git for pushing commits
-          # Embed the access token directly into the remote URL so that the gh-pages library can pick it up
+      - name: Authenticate npm
         run: |
-          git config --global user.email "nirzon@sportvot.com"
-          git config --global user.name "nirzon47"
-          git remote set-url origin https://git:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          echo "@sportvot:registry=https://npm.pkg.github.com/
+          //npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}" > ~/.npmrc
 
       - name: Publish Package
         env:
