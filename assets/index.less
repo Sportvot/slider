@@ -42,17 +42,16 @@
   &-tracks {
     position: absolute;
     height: 4px;
+    height: 48px;
     background-color: transparent;
     border-radius: @border-radius-base;
   }
 
   &-track-draggable {
     z-index: 1;
-    box-sizing: content-box;
     background-clip: content-box;
-    border-top: 5px solid rgba(0, 0, 0, 0);
-    border-bottom: 5px solid rgba(0, 0, 0, 0);
-    transform: translateY(-5px);
+    border-top: 4px solid fade(@tooltip-color, 70%);
+    border-bottom: 4px solid fade(@tooltip-color, 70%);
   }
 
   &-handle {
@@ -64,7 +63,6 @@
     cursor: pointer;
     cursor: -webkit-grab;
     cursor: grab;
-    opacity: 0.8;
     user-select: none;
     touch-action: pan-x;
 
